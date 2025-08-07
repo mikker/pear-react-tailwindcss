@@ -1,0 +1,38 @@
+{
+  "name": "pear-react-tailwindcss",
+  "main": "pear/index.html",
+  "pear": {
+    "name": "pear-react-tailwindcss",
+    "type": "desktop",
+    "gui": {
+      "backgroundColor": "#1F2430",
+      "height": "540",
+      "width": "720"
+    }
+  },
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:swc": "swc src --out-dir build --watch --strip-leading-paths",
+    "dev:tailwind": "tailwindcss -i ./src/styles.css -o ./build/styles.css --watch",
+    "dev:pear": "pear run -d .",
+    "build": "swc src --out-dir build --strip-leading-paths && tailwindcss -i ./src/styles.css -o ./build/styles.css",
+    "test": "brittle test/*.test.js"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.7.8",
+    "@swc/core": "^1.13.3",
+    "brittle": "^3.0.0",
+    "chokidar": "^4.0.3",
+    "clsx": "^2.1.1",
+    "concurrently": "^9.2.0",
+    "pear-interface": "^1.0.0",
+    "prettier": "^3.6.2",
+    "prettier-config-standard": "^7.0.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.11",
+    "tailwind-merge": "^3.3.1"
+  }
+}
